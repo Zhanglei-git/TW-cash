@@ -30,9 +30,9 @@ public class BuyAndFreeStrategy implements Strategy{
         BuyAndFreeInfo bfi;
         bfi = queryBuyAndFree(shoppingItem.getGoods().getBarcode());
         int count = 1;
-        for(int i=1;i<=shoppingItem.getNumber();i++){
-            shoppingItem.setSubPriceAfterDiscount(shoppingItem.getSubPriceAfterDiscount()+shoppingItem.getGoods().getPrice());
-            if(bfi!=null){
+        if(bfi!=null){
+            for(int i=1;i<=shoppingItem.getNumber();i++){
+                shoppingItem.setSubPriceAfterDiscount(shoppingItem.getSubPriceAfterDiscount()+shoppingItem.getGoods().getPrice());
                 if(count==bfi.getBuyCount()){
                     i+=bfi.getFreeCount();
                     count=1;

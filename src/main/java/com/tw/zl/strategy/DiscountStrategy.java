@@ -20,9 +20,11 @@ public class DiscountStrategy implements Strategy {
     public ShoppingCart getShoppingCartAfterStrategy(ShoppingCart shoppingCart) {
         for(int i=0;i<shoppingCart.size();i++){
             ShoppingItem si = (ShoppingItem)shoppingCart.get(i);
-            si = calculate(si);
-            shoppingCart.set(i, si);
-            shoppingCart.setSumPrice(shoppingCart.getSumPrice()+si.getSubPriceAfterDiscount());
+            if(queryDiscount(si.getGoods().getBarcode())!=1.0){
+                si = calculate(si);
+                shoppingCart.set(i, si);
+                shoppingCart.setSumPrice(shoppingCart.getSumPrice()+si.getSubPriceAfterDiscount());
+            }
         }
         return shoppingCart;
     }

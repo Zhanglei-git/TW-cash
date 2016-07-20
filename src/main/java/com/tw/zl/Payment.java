@@ -22,7 +22,6 @@ public class Payment {
     }
     public ShoppingCart calculateAfterAllStrategy(){
         if(StrategyList.size()!=0){
-            //// TODO: 16-7-20 排序
             StrategyList.sort();
             Iterator iterator = StrategyList.iterator();
             while (iterator.hasNext()) {
@@ -43,12 +42,12 @@ public class Payment {
         }
     }
     private void caculate(StrategyItem strategyItem){
-        if(!conflictFlagList.contains(strategyItem.getConflictFlag())){
+       // if(!conflictFlagList.contains(strategyItem.getConflictFlag())){
             shoppingCart = strategyItem.getStrategy().getShoppingCartAfterStrategy(shoppingCart);
-            if (strategyItem.isOnlyMe()){
-                conflictFlagList.add(strategyItem.getConflictFlag());
-            }
-        }
+        //    if (strategyItem.isOnlyMe()){
+          //      conflictFlagList.add(strategyItem.getConflictFlag());
+           // }
+       // }
     }
     public ShoppingCart getShoppingCart() {
         return shoppingCart;

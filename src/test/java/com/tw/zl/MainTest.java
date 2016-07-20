@@ -96,4 +96,15 @@ public class MainTest
         shoppingCart = payment.calculateAfterAllStrategy();
         assertEquals(25,shoppingCart.getSumPrice(),0);
     }
+
+    @Test
+    public void test_BUY_TWO_GET_ONE_FREE_and_PRICE_95_PERCENT() throws Exception {
+        StrategyList.clear();
+        setStrategy(StrategyType.BUY_TWO_GET_ONE_FREE,9,1,true);
+        setStrategy(StrategyType.PRICE_95_PERCENT,8,1,true);
+        Payment payment = new Payment(shoppingCart);
+        shoppingCart = payment.calculateAfterAllStrategy();
+        assertEquals(20.45,shoppingCart.getSumPrice(),0);
+
+    }
 }

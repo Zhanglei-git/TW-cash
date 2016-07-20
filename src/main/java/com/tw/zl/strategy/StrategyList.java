@@ -40,7 +40,7 @@ public class StrategyList {
         public int compare(StrategyItem s1, StrategyItem s2) {
             //先排优先级
             if(s1.getPriority()!=s2.getPriority()) {
-                return s1.getPriority() - s2.getPriority();
+                return -(s1.getPriority() - s2.getPriority());
             }
             return 0;
         }
