@@ -1,6 +1,7 @@
 package com.tw.zl;
 
 import com.tw.zl.shoppingcart.ShoppingCart;
+import com.tw.zl.shoppingcart.ShoppingItem;
 import com.tw.zl.strategy.Strategy;
 import com.tw.zl.strategy.StrategyItem;
 import com.tw.zl.strategy.StrategyList;
@@ -20,12 +21,24 @@ public class Payment {
         this.shoppingCart = shoppingCart;
     }
     public ShoppingCart calculateAfterAllStrategy(){
-        Iterator iterator = StrategyList.iterator();
-        while(iterator.hasNext()){
-            StrategyItem strategyItem = (StrategyItem) iterator.next();
-            caculate(strategyItem);
+        if(StrategyList.size()!=0){
+            Iterator iterator = StrategyList.iterator();
+            while (iterator.hasNext()) {
+                StrategyItem strategyItem = (StrategyItem) iterator.next();
+                caculate(strategyItem);
+            }
+        }else{
+            generalCalculate();
         }
         return shoppingCart;
+    }
+    private void generalCalculate(){
+        for(int i=0;i<shoppingCart.size();i++){
+            ShoppingItem si = (ShoppingItem)shoppingCart.get(i);
+            si.setSubPriceAfterDiscount(si.getGoods().getPrice()*si.getNumber());
+            shoppingCart.set(i, si);
+            shoppingCart.setSumPrice(shoppingCart.getSumPrice()+si.getSubPriceAfterDiscount());
+        }
     }
     private void caculate(StrategyItem strategyItem){
         if(!conflictFlagList.contains(strategyItem.getConflictFlag())){

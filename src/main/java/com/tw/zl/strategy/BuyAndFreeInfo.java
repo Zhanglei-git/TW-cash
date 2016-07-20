@@ -9,6 +9,12 @@ public class BuyAndFreeInfo {
     private int buyCount;//买几
     private int freeCount;//送几
 
+    public BuyAndFreeInfo(String barcode, int buyCount, int freeCount) {
+        this.barcode = barcode;
+        this.buyCount = buyCount;
+        this.freeCount = freeCount;
+    }
+
     public String getBarcode() {
         return barcode;
     }

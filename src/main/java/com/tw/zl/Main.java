@@ -4,10 +4,7 @@ import com.tw.zl.common.Goods;
 import com.tw.zl.common.GoodsList;
 import com.tw.zl.shoppingcart.ShoppingCart;
 import com.tw.zl.shoppingcart.ShoppingItem;
-import com.tw.zl.strategy.DiscountInfo;
-import com.tw.zl.strategy.Strategy;
-import com.tw.zl.strategy.StrategyItem;
-import com.tw.zl.strategy.StrategyList;
+import com.tw.zl.strategy.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +57,7 @@ public class Main
     }
     public static List getStrategyInfoList(StrategyType strategyType){
         switch(strategyType){
-            case BUY_TWO_GET_ONE_FREE:return null;
+            case BUY_TWO_GET_ONE_FREE:return getBuyAndFreeInfoList();
             case PRICE_95_PERCENT:return getDiscountInfoList();
         }
         return null;
@@ -71,6 +68,14 @@ public class Main
         List strategyInfoList = new ArrayList();
         strategyInfoList.add(di1);
         strategyInfoList.add(di2);
+        return strategyInfoList;
+    }
+    public static List getBuyAndFreeInfoList(){
+        BuyAndFreeInfo bfi1 = new BuyAndFreeInfo("ITEM000001",2,1);
+        BuyAndFreeInfo bfi2 = new BuyAndFreeInfo("ITEM000005",2,1);
+        List strategyInfoList = new ArrayList();
+        strategyInfoList.add(bfi1);
+        strategyInfoList.add(bfi2);
         return strategyInfoList;
     }
 
