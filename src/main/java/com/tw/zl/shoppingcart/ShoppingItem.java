@@ -6,13 +6,13 @@ import com.tw.zl.common.Goods;
  * Created by zl on 16-7-19.
  * @desc 购物车中商品项目信息
  */
-public class GoodsItem {
+public class ShoppingItem {
     private Goods goods;
     private double number;
     private double discount;
     private double subPriceAfterDiscount;
 
-    public GoodsItem(Goods goods, double number) {
+    public ShoppingItem(Goods goods, double number) {
         this.goods = goods;
         this.number = number;
     }

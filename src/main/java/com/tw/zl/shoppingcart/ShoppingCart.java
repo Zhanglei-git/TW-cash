@@ -7,21 +7,21 @@ import java.util.List;
  * Created by zl on 16-7-19.
  */
 public class ShoppingCart {
-    private List<GoodsItem> list = new ArrayList<GoodsItem>();
+    private List<ShoppingItem> list = new ArrayList<ShoppingItem>();
     private double sumPrice;
 
-    public void addGoods(GoodsItem goodsItem){
-        list.add(goodsItem);
+    public void addShoppingItem(ShoppingItem shoppingItem){
+        list.add(shoppingItem);
     }
-    public void removeGoods(GoodsItem goodsItem){
-        list.remove(goodsItem);
+    public void removeShoppingItem(ShoppingItem shoppingItem){
+        list.remove(shoppingItem);
     }
 
-    public List<GoodsItem> getList() {
+    public List<ShoppingItem> getList() {
         return list;
     }
 
-    public void setList(List<GoodsItem> list) {
+    public void setList(List<ShoppingItem> list) {
         this.list = list;
     }
 
