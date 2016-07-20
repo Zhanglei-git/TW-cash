@@ -6,15 +6,13 @@ import java.util.List;
 
 /**
  * Created by zl on 16-7-20.
+ * @desc 实现Strategy接口的打折类方法
  */
 public class DiscountStrategy implements Strategy {
     private List<DiscountInfo> disInfoList;
 
-    public DiscountStrategy() {
-    }
-
-    public DiscountStrategy(List<Object> strategyInfoList) {
-        //// TODO: 16-7-20 对外面穿进来的list做强制转换
+    public void setStrategyInfoList(List strategyInfoList) {
+        this.disInfoList =(List<DiscountInfo>) strategyInfoList;
     }
 
     public ShoppingCart getShoppingCartAfterDiscount(ShoppingCart shoppingCart) {

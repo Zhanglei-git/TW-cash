@@ -7,23 +7,18 @@ import java.util.List;
  * @desc 存储策略对应的详细优惠信息
  */
 public class StrategyInfoList {
-    private List<Object> strategyInfoList = new ArrayList<Object>();
+    private List strategyInfoList = new ArrayList();
 
-    public void add(Object o){
+    public void add(Object o) {
         strategyInfoList.add(o);
     }
-    public void remove(Object o){
+
+    public void remove(Object o) {
         strategyInfoList.remove(o);
     }
-    public void clear(){
+
+    public void clear() {
         strategyInfoList.clear();
     }
 
-    public List<Object> getStrategyInfoList() {
-        return strategyInfoList;
-    }
-
-    public void setStrategyInfoList(List<Object> strategyInfoList) {
-        this.strategyInfoList = strategyInfoList;
-    }
 }

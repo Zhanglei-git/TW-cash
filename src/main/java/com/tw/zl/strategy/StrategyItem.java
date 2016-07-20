@@ -10,6 +10,13 @@ public class StrategyItem {
     private int conflictFlag;
     private boolean onlyMe;
 
+    public StrategyItem(Strategy strategy, int priority, int conflictFlag, boolean onlyMe) {
+        this.strategy = strategy;
+        this.priority = priority;
+        this.conflictFlag = conflictFlag;
+        this.onlyMe = onlyMe;
+    }
+
     public Strategy getStrategy() {
         return strategy;
     }

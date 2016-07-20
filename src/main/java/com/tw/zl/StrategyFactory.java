@@ -3,11 +3,13 @@ package com.tw.zl;
 import com.tw.zl.strategy.DiscountStrategy;
 import com.tw.zl.strategy.Strategy;
 
+import java.util.List;
+
 /**
  * Created by zl on 16-7-20.
  */
 public class StrategyFactory {
-    public Strategy creatStrategy(StrategyType strategyType){
+    public static Strategy creatStrategy(StrategyType strategyType){
         switch(strategyType){
             case BUY_TWO_GET_ONE_FREE:
                 return new DiscountStrategy();
