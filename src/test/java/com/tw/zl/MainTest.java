@@ -107,4 +107,5 @@ public class MainTest
         assertEquals(20.45,shoppingCart.getSumPrice(),0);
 
     }
+    
 }

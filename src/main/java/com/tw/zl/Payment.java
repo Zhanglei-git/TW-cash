@@ -28,10 +28,21 @@ public class Payment {
                 StrategyItem strategyItem = (StrategyItem) iterator.next();
                 caculate(strategyItem);
             }
+            calculateNoStrategy();
         }else{
             generalCalculate();
         }
         return shoppingCart;
+    }
+    private void calculateNoStrategy(){
+        for(int i=0;i<shoppingCart.size();i++){
+            ShoppingItem si = (ShoppingItem)shoppingCart.get(i);
+            if(si.getSubPriceAfterDiscount()==0.0d){
+                si.setSubPriceAfterDiscount(si.getGoods().getPrice()*si.getNumber());
+                shoppingCart.set(i, si);
+                shoppingCart.setSumPrice(shoppingCart.getSumPrice()+si.getSubPriceAfterDiscount());
+            }
+        }
     }
     private void generalCalculate(){
         for(int i=0;i<shoppingCart.size();i++){
