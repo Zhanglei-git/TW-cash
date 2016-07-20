@@ -28,9 +28,6 @@ public class StrategyList {
     }
     public static void sort(){
         Collections.sort(strategyList,comparator );
-        for(int i=0;i<strategyList.size();i++){
-            System.out.print(strategyList.get(i).getPriority()+"  ");
-        }
     }
     public static void setStrategyList(List<StrategyItem> strategyList) {
         StrategyList.strategyList = strategyList;

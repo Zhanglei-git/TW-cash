@@ -53,12 +53,7 @@ public class Payment {
         }
     }
     private void caculate(StrategyItem strategyItem){
-       // if(!conflictFlagList.contains(strategyItem.getConflictFlag())){
-            shoppingCart = strategyItem.getStrategy().getShoppingCartAfterStrategy(shoppingCart);
-        //    if (strategyItem.isOnlyMe()){
-          //      conflictFlagList.add(strategyItem.getConflictFlag());
-           // }
-       // }
+        shoppingCart = strategyItem.getStrategy().getShoppingCartAfterStrategy(shoppingCart);
     }
     public ShoppingCart getShoppingCart() {
         return shoppingCart;

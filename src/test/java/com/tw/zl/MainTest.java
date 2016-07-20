@@ -2,6 +2,8 @@ package com.tw.zl;
 
 import com.tw.zl.common.Goods;
 import com.tw.zl.common.GoodsList;
+import com.tw.zl.print.OrdinaryPrint;
+import com.tw.zl.print.Print;
 import com.tw.zl.shoppingcart.ShoppingCart;
 import com.tw.zl.shoppingcart.ShoppingItem;
 import com.tw.zl.strategy.DiscountStrategy;
@@ -45,6 +47,7 @@ public class MainTest
 //        assertTrue(StrategyList.get(0).isOnlyMe());
 //    }
     ShoppingCart shoppingCart;
+    Print print;
     @Before
     public void setUp() throws Exception {
         //初始化总商品
@@ -69,6 +72,8 @@ public class MainTest
         shoppingCart.addShoppingItem(si1);
         shoppingCart.addShoppingItem(si2);
         shoppingCart.addShoppingItem(si3);
+
+        print = new OrdinaryPrint();
     }
 
     @Test
@@ -78,6 +83,7 @@ public class MainTest
         Payment payment = new Payment(shoppingCart);
         shoppingCart = payment.calculateAfterAllStrategy();
         assertEquals(24.45,shoppingCart.getSumPrice(),0);
+        print.print(shoppingCart);
     }
 
     @Test
@@ -87,6 +93,7 @@ public class MainTest
         Payment payment = new Payment(shoppingCart);
         shoppingCart = payment.calculateAfterAllStrategy();
         assertEquals(21,shoppingCart.getSumPrice(),0);
+        print.print(shoppingCart);
     }
 
     @Test
@@ -95,6 +102,7 @@ public class MainTest
         Payment payment = new Payment(shoppingCart);
         shoppingCart = payment.calculateAfterAllStrategy();
         assertEquals(25,shoppingCart.getSumPrice(),0);
+        print.print(shoppingCart);
     }
 
     @Test
@@ -105,7 +113,7 @@ public class MainTest
         Payment payment = new Payment(shoppingCart);
         shoppingCart = payment.calculateAfterAllStrategy();
         assertEquals(20.45,shoppingCart.getSumPrice(),0);
-
+        print.print(shoppingCart);
     }
-    
+
 }

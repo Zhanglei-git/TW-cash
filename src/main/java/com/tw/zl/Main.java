@@ -2,6 +2,8 @@ package com.tw.zl;
 
 import com.tw.zl.common.Goods;
 import com.tw.zl.common.GoodsList;
+import com.tw.zl.print.OrdinaryPrint;
+import com.tw.zl.print.Print;
 import com.tw.zl.shoppingcart.ShoppingCart;
 import com.tw.zl.shoppingcart.ShoppingItem;
 import com.tw.zl.strategy.*;
@@ -25,6 +27,8 @@ public class Main
         shoppingCart = initShoppingCart();
         Payment payment = new Payment(shoppingCart);
         shoppingCart = payment.calculateAfterAllStrategy();
+        Print print = new OrdinaryPrint();
+        print.print(shoppingCart);
 
     }
 
