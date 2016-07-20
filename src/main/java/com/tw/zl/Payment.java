@@ -22,6 +22,8 @@ public class Payment {
     }
     public ShoppingCart calculateAfterAllStrategy(){
         if(StrategyList.size()!=0){
+            //// TODO: 16-7-20 排序
+            StrategyList.sort();
             Iterator iterator = StrategyList.iterator();
             while (iterator.hasNext()) {
                 StrategyItem strategyItem = (StrategyItem) iterator.next();

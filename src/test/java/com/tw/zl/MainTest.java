@@ -88,4 +88,12 @@ public class MainTest
         shoppingCart = payment.calculateAfterAllStrategy();
         assertEquals(21,shoppingCart.getSumPrice(),0);
     }
+
+    @Test
+    public void test_just_general_no_Strategy() throws Exception {
+        StrategyList.clear();
+        Payment payment = new Payment(shoppingCart);
+        shoppingCart = payment.calculateAfterAllStrategy();
+        assertEquals(25,shoppingCart.getSumPrice(),0);
+    }
 }

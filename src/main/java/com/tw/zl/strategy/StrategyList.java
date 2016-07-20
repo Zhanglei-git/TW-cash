@@ -1,8 +1,6 @@
 package com.tw.zl.strategy;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by zl on 16-7-20.
@@ -28,7 +26,24 @@ public class StrategyList {
     public static Iterator iterator(){
         return strategyList.iterator();
     }
+    public static void sort(){
+        Collections.sort(strategyList,comparator );
+        for(int i=0;i<strategyList.size();i++){
+            System.out.print(strategyList.get(i).getPriority()+"  ");
+        }
+    }
     public static void setStrategyList(List<StrategyItem> strategyList) {
         StrategyList.strategyList = strategyList;
     }
+
+    private static Comparator<StrategyItem> comparator = new Comparator<StrategyItem>(){
+        public int compare(StrategyItem s1, StrategyItem s2) {
+            //先排优先级
+            if(s1.getPriority()!=s2.getPriority()) {
+                return s1.getPriority() - s2.getPriority();
+            }
+            return 0;
+        }
+    };
+
 }
