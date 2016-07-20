@@ -10,8 +10,11 @@ import java.util.List;
 public class DiscountStrategy implements Strategy {
     private List<DiscountInfo> disInfoList;
 
+    public DiscountStrategy() {
+    }
+
     public DiscountStrategy(List<Object> strategyInfoList) {
-        //// TODO: 16-7-20 对外面穿进来的list做强制转换 
+        //// TODO: 16-7-20 对外面穿进来的list做强制转换
     }
 
     public ShoppingCart getShoppingCartAfterDiscount(ShoppingCart shoppingCart) {
