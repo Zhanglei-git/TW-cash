@@ -1,7 +1,7 @@
 # TW-cash
 [![Build Status](https://travis-ci.org/Zhanglei-git/TW-cash.svg?branch=master)](https://travis-ci.org/Zhanglei-git/TW-cash)
 
-![image](https://github.com/Zhanglei-git/CIproject/blob/master/UML.png)
+![image](https://github.com/Zhanglei-git/TW-cash/blob/master/UML.png)
 1. load 商品信息 Goods 到 GoodsList（静态）<br/>
 2. load 购买信息 ShoppingItem 到 ShoppingCart<br/>
 3. Strategy接口包含根据策略计算相应价钱，不同优惠策略实现该接口；<br/>
