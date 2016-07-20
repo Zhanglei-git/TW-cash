@@ -1,5 +1,6 @@
 package com.tw.zl;
 
+import com.tw.zl.common.GoodsList;
 import com.tw.zl.strategy.DiscountStrategy;
 import com.tw.zl.strategy.Strategy;
 import com.tw.zl.strategy.StrategyItem;
@@ -15,6 +16,14 @@ import static org.junit.Assert.*;
  */
 public class MainTest
 {
+    @Test
+    public void test_initGoodsList() throws Exception {
+        assertEquals(0, GoodsList.getGoodsList().size());
+        initGoodsList();
+        assertEquals(6,GoodsList.getGoodsList().size());
+
+    }
+
     @Test
     public void test_staff_set_DiscountStrategy() throws Exception {
         setStrategy(StrategyType.PRICE_95_PERCENT,8,1,true);
