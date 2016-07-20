@@ -28,6 +28,7 @@ public class Main
         shoppingCart = initShoppingCart();
         Payment payment = new Payment(shoppingCart);
         shoppingCart = payment.calculateAfterAllStrategy();
+
     }
 
     /**
@@ -65,8 +66,8 @@ public class Main
         return null;
     }
     public static List getDiscountInfoList(){
-        DiscountInfo di1 = new DiscountInfo("ITEM000000",9.5);
-        DiscountInfo di2 = new DiscountInfo("ITEM000003",9.5);
+        DiscountInfo di1 = new DiscountInfo("ITEM000000",0.95);
+        DiscountInfo di2 = new DiscountInfo("ITEM000003",0.95);
         List strategyInfoList = new ArrayList();
         strategyInfoList.add(di1);
         strategyInfoList.add(di2);

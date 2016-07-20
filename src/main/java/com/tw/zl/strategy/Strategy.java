@@ -15,6 +15,6 @@ public interface Strategy {
      * @param shoppingCart ShoppingCart
      * @return ShoppingCart
      */
-    public ShoppingCart getShoppingCartAfterDiscount(ShoppingCart shoppingCart);
+    public ShoppingCart getShoppingCartAfterStrategy(ShoppingCart shoppingCart);
     public void setStrategyInfoList(List strategyInfoList);
 }

@@ -24,7 +24,9 @@ public class GoodsList {
     public static int size(){
         return goodsList.size();
     }
-
+    public static void clear(){
+        goodsList.clear();
+    }
     public static void setGoodsList(List<Goods> goodsList) {
 
         GoodsList.goodsList = goodsList;

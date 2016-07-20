@@ -1,7 +1,9 @@
 package com.tw.zl.strategy;
 
 import com.tw.zl.shoppingcart.ShoppingCart;
+import com.tw.zl.shoppingcart.ShoppingItem;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -15,7 +17,31 @@ public class DiscountStrategy implements Strategy {
         this.disInfoList =(List<DiscountInfo>) strategyInfoList;
     }
 
-    public ShoppingCart getShoppingCartAfterDiscount(ShoppingCart shoppingCart) {
+    public ShoppingCart getShoppingCartAfterStrategy(ShoppingCart shoppingCart) {
+        for(int i=0;i<shoppingCart.size();i++){
+            ShoppingItem si = (ShoppingItem)shoppingCart.get(i);
+            double discount = queryDiscount(si.getGoods().getBarcode());
+            si.setSubPriceAfterDiscount(si.getGoods().getPrice()*si.getNumber()*discount);
+            si.setDiscount(discount);
+            shoppingCart.set(i, si);
+            shoppingCart.setSumPrice(shoppingCart.getSumPrice()+si.getSubPriceAfterDiscount());
+        }
         return shoppingCart;
+    }
+    //查询是否有折扣
+    private double queryDiscount(String barcode){
+        boolean isFind = false;
+        double discount = 1.0;
+        if(!"".equals(barcode)&&barcode!=null){
+            Iterator it = this.disInfoList.iterator();
+            while(it.hasNext()&&(!isFind)){
+                DiscountInfo di = (DiscountInfo)it.next();
+                if(barcode.equals(di.getBarcode())){
+                    isFind = true;
+                    discount = di.getDiscount();
+                }
+            }
+        }
+        return discount;
     }
 }

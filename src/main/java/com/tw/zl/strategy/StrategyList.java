@@ -1,6 +1,7 @@
 package com.tw.zl.strategy;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,7 +25,9 @@ public class StrategyList {
     public static int size(){
         return strategyList.size();
     }
-
+    public static Iterator iterator(){
+        return strategyList.iterator();
+    }
     public static void setStrategyList(List<StrategyItem> strategyList) {
         StrategyList.strategyList = strategyList;
     }

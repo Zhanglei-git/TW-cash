@@ -19,6 +19,12 @@ public class ShoppingCart {
     public int size(){
         return list.size();
     }
+    public  ShoppingItem get(int index){
+        return list.get(index);
+    }
+    public void set(int index,ShoppingItem element){
+        list.set(index,element);
+    }
     public List<ShoppingItem> getList() {
         return list;
     }

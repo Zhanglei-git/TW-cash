@@ -1,5 +1,6 @@
 package com.tw.zl;
 
+import com.tw.zl.common.Goods;
 import com.tw.zl.common.GoodsList;
 import com.tw.zl.shoppingcart.ShoppingCart;
 import com.tw.zl.strategy.DiscountStrategy;
@@ -40,5 +41,18 @@ public class MainTest
         assertEquals(8,StrategyList.get(0).getPriority());
         assertEquals(1,StrategyList.get(0).getConflictFlag());
         assertTrue(StrategyList.get(0).isOnlyMe());
+    }
+
+    @Test
+    public void test_just_buy_PRICE_95_PERCENT() throws Exception {
+        GoodsList.clear();
+        StrategyList.clear();
+        ShoppingCart shoppingCart = new ShoppingCart();
+        initGoodsList();
+        setStrategy(StrategyType.PRICE_95_PERCENT,8,1,true);
+        shoppingCart = initShoppingCart();
+        Payment payment = new Payment(shoppingCart);
+        shoppingCart = payment.calculateAfterAllStrategy();
+        assertEquals(24.45,shoppingCart.getSumPrice(),0.0001);
     }
 }
