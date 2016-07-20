@@ -20,13 +20,17 @@ public class DiscountStrategy implements Strategy {
     public ShoppingCart getShoppingCartAfterStrategy(ShoppingCart shoppingCart) {
         for(int i=0;i<shoppingCart.size();i++){
             ShoppingItem si = (ShoppingItem)shoppingCart.get(i);
-            double discount = queryDiscount(si.getGoods().getBarcode());
-            si.setSubPriceAfterDiscount(si.getGoods().getPrice()*si.getNumber()*discount);
-            si.setDiscount(discount);
+            si = calculate(si);
             shoppingCart.set(i, si);
             shoppingCart.setSumPrice(shoppingCart.getSumPrice()+si.getSubPriceAfterDiscount());
         }
         return shoppingCart;
+    }
+    private ShoppingItem calculate(ShoppingItem si){
+        double discount = queryDiscount(si.getGoods().getBarcode());
+        si.setSubPriceAfterDiscount(si.getGoods().getPrice()*si.getNumber()*discount);
+        si.setDiscount(discount);
+        return si;
     }
     //查询是否有折扣
     private double queryDiscount(String barcode){
