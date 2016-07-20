@@ -1,6 +1,7 @@
 package com.tw.zl;
 
 import com.tw.zl.common.GoodsList;
+import com.tw.zl.shoppingcart.ShoppingCart;
 import com.tw.zl.strategy.DiscountStrategy;
 import com.tw.zl.strategy.Strategy;
 import com.tw.zl.strategy.StrategyItem;
@@ -18,18 +19,26 @@ public class MainTest
 {
     @Test
     public void test_initGoodsList() throws Exception {
-        assertEquals(0, GoodsList.getGoodsList().size());
+        assertEquals(0, GoodsList.size());
         initGoodsList();
-        assertEquals(6,GoodsList.getGoodsList().size());
+        assertEquals(6,GoodsList.size());
 
+    }
+
+    @Test
+    public void test_initShoppingCart() throws Exception {
+        ShoppingCart sc = new ShoppingCart();
+        assertEquals(0,sc.size());
+        sc = initShoppingCart();
+        assertEquals(3,sc.size());
     }
 
     @Test
     public void test_staff_set_DiscountStrategy() throws Exception {
         setStrategy(StrategyType.PRICE_95_PERCENT,8,1,true);
-        assertTrue(StrategyList.getStrategyList().get(0).getStrategy() instanceof DiscountStrategy);
-        assertEquals(8,StrategyList.getStrategyList().get(0).getPriority());
-        assertEquals(1,StrategyList.getStrategyList().get(0).getConflictFlag());
-        assertTrue(StrategyList.getStrategyList().get(0).isOnlyMe());
+        assertTrue(StrategyList.get(0).getStrategy() instanceof DiscountStrategy);
+        assertEquals(8,StrategyList.get(0).getPriority());
+        assertEquals(1,StrategyList.get(0).getConflictFlag());
+        assertTrue(StrategyList.get(0).isOnlyMe());
     }
 }

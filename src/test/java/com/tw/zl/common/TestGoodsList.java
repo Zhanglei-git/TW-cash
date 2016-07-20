@@ -25,6 +25,6 @@ public class TestGoodsList {
 
     @Test
     public void testAddGoods() throws Exception {
-        assertEquals(3,GoodsList.getGoodsList().size());
+        assertEquals(3,GoodsList.size());
     }
 }

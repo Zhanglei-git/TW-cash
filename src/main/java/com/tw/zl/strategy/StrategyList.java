@@ -18,9 +18,11 @@ public class StrategyList {
     public static void clear(){
         strategyList.clear();
     }
-
-    public static List<StrategyItem> getStrategyList() {
-        return strategyList;
+    public static StrategyItem get(int index){
+        return strategyList.get(index);
+    }
+    public static int size(){
+        return strategyList.size();
     }
 
     public static void setStrategyList(List<StrategyItem> strategyList) {

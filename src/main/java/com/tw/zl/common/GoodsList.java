@@ -10,17 +10,23 @@ import java.util.List;
 public class GoodsList {
     private static List<Goods> goodsList = new ArrayList<Goods>();
 
-    public static void addGoods(Goods goods){
+    public static void addGoods(Goods goods)
+    {
         goodsList.add(goods);
     }
     public static void removeGoods(Goods good){
+
         goodsList.remove(good);
     }
-    public static List<Goods> getGoodsList() {
-        return goodsList;
+    public static Goods get(int index){
+        return goodsList.get(index);
+    }
+    public static int size(){
+        return goodsList.size();
     }
 
     public static void setGoodsList(List<Goods> goodsList) {
+
         GoodsList.goodsList = goodsList;
     }
 }

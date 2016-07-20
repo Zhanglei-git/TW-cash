@@ -13,16 +13,14 @@ public class ShoppingCart {
     public void addShoppingItem(ShoppingItem shoppingItem){
         list.add(shoppingItem);
     }
-    public void removeShoppingItem(ShoppingItem shoppingItem){
+    public void removeShoppingItem(ShoppingItem shoppingItem) {
         list.remove(shoppingItem);
     }
-
+    public int size(){
+        return list.size();
+    }
     public List<ShoppingItem> getList() {
         return list;
-    }
-
-    public void setList(List<ShoppingItem> list) {
-        this.list = list;
     }
 
     public double getSumPrice() {
